@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { Modal, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Modal, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 type Question = {
   id: number;
@@ -164,11 +164,16 @@ export default function QuizScreen() {
       setCurrentQuestionIndex(0);
     } else {
       // Quiz completed
-    //   router.replace('/(tabs)');
+      router.replace('/(tabs)/learn');
     }
     
     setSelectedOption(null);
     setShowAnswer(false);
+  };
+
+  const handleCompleteQuiz = () => {
+    // Navigate to the main tabs when user clicks "Complete Quiz"
+    router.replace('/(tabs)/learn');
   };
 
   const handleBackPress = () => {
@@ -233,10 +238,10 @@ export default function QuizScreen() {
       <View className="flex-1 bg-gray-100">
         {/* Header */}
         <View className="bg-[#1a4689] px-5 py-4">
-          <View className="flex-row items-center justify-between mt-5">
+          <View className="flex-row items-center justify-between">
             <TouchableOpacity onPress={handleBackPress} className="flex-row items-center">
               <Ionicons name="arrow-back" size={24} color="white" />
-              <Text className="text-white text-lg font-bold ml-2 mt-5">
+              <Text className="text-white text-lg font-bold ml-2">
                 Knowledge Assessment Quiz
               </Text>
             </TouchableOpacity>
@@ -370,8 +375,19 @@ export default function QuizScreen() {
           </View>
         </ScrollView>
         
+        {/* Complete Quiz Button at bottom */}
+        <View className="p-4 bg-white border-t border-gray-200">
+          <TouchableOpacity
+            className="bg-[#1a4689] py-4 rounded-xl flex-row justify-center items-center"
+            onPress={handleCompleteQuiz}
+          >
+            <Text className="text-white text-center font-bold mr-2">Complete Quiz</Text>
+            <Ionicons name="checkmark-circle" size={20} color="white" />
+          </TouchableOpacity>
+        </View>
+        
         {/* Footer */}
-        {/* <View className="bg-white p-4 flex-row justify-between items-center border-t border-gray-200">
+        <View className="bg-white p-4 flex-row justify-between items-center border-t border-gray-200">
           <View className="flex-row items-center">
             <Image 
               source={{ uri: 'https://randomuser.me/api/portraits/men/32.jpg' }}
@@ -390,7 +406,7 @@ export default function QuizScreen() {
               <Ionicons name="settings" size={24} color="#666" />
             </TouchableOpacity>
           </View>
-        </View> */}
+        </View>
       </View>
     </SafeAreaView>
   );
