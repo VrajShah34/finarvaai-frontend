@@ -1,8 +1,23 @@
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 export default function ProfileScreen() {
+  const router = useRouter();
+
+  const navigateToMyLeads = () => {
+    router.push('/my-leads');
+  };
+  
+  const navigateToCallAnalysis = () => {
+    router.push('/ai-call-analysis');
+  };
+  
+  const navigateToPracticeArena = () => {
+    router.push('/ai-practice-arena');
+  };
+  
   return (
     <SafeAreaView className="flex-1 bg-white">
       <ScrollView className="flex-1 p-4">
@@ -12,29 +27,93 @@ export default function ProfileScreen() {
               source={{ uri: 'https://randomuser.me/api/portraits/men/32.jpg' }}
               className="w-24 h-24 rounded-full mb-3"
             />
-            <Text className="text-2xl font-bold text-[#1a4689]">Rahul Kumar</Text>
+            <Text className="text-2xl font-bold text-[#04457E]">Rahul Kumar</Text>
             <Text className="text-gray-600">GroMo Partner</Text>
           </View>
           
-          {/* Placeholder content */}
-          <View className="bg-gray-100 rounded-lg p-4 mb-4">
-            <Text className="text-gray-800 font-semibold mb-2">Personal Information</Text>
-            <Text className="text-gray-600">Placeholder for user details</Text>
-          </View>
-          
+          {/* Performance Stats */}
           <View className="bg-gray-100 rounded-lg p-4 mb-4">
             <Text className="text-gray-800 font-semibold mb-2">Performance Metrics</Text>
-            <Text className="text-gray-600">Placeholder for user performance stats</Text>
+            <View className="flex-row justify-between">
+              <View className="items-center">
+                <Text className="text-[#04457E] font-bold text-lg">42</Text>
+                <Text className="text-gray-600 text-sm">Leads</Text>
+              </View>
+              <View className="items-center">
+                <Text className="text-[#04457E] font-bold text-lg">18</Text>
+                <Text className="text-gray-600 text-sm">Customers</Text>
+              </View>
+              <View className="items-center">
+                <Text className="text-[#04457E] font-bold text-lg">₹32K</Text>
+                <Text className="text-gray-600 text-sm">Revenue</Text>
+              </View>
+            </View>
           </View>
           
+          {/* Button Group */}
+          <View className="space-y-3 mb-4">
+            {/* Post-Sale Dashboard Button */}
+            <TouchableOpacity 
+              className="flex-row items-center justify-between bg-[#04457E] p-4 rounded-lg"
+              onPress={navigateToMyLeads}
+            >
+              <View className="flex-row items-center">
+                <View className="bg-white rounded-full p-2 mr-3">
+                  <Ionicons name="people" size={20} color="#04457E" />
+                </View>
+                <Text className="text-white font-semibold text-lg">Post-Sale Dashboard</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={24} color="white" />
+            </TouchableOpacity>
+            
+            {/* AI Call Analysis Button */}
+            <TouchableOpacity 
+              className="flex-row items-center justify-between bg-[#18FFAA] p-4 rounded-lg"
+              onPress={navigateToCallAnalysis}
+            >
+              <View className="flex-row items-center">
+                <View className="bg-[#04457E] rounded-full p-2 mr-3">
+                  <Ionicons name="analytics" size={20} color="#18FFAA" />
+                </View>
+                <Text className="text-[#04457E] font-semibold text-lg">AI Call Analysis</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={24} color="#04457E" />
+            </TouchableOpacity>
+            
+            {/* AI Practice Arena Button */}
+            <TouchableOpacity 
+              className="flex-row items-center justify-between bg-[#04457E] p-4 rounded-lg"
+              onPress={navigateToPracticeArena}
+            >
+              <View className="flex-row items-center">
+                <View className="bg-[#18FFAA] rounded-full p-2 mr-3">
+                  <Ionicons name="fitness" size={20} color="#04457E" />
+                </View>
+                <Text className="text-white font-semibold text-lg">AI Practice Arena</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={24} color="white" />
+            </TouchableOpacity>
+          </View>
+          
+          {/* Other Profile Options */}
           <View className="space-y-2 mb-4">
             <TouchableOpacity className="flex-row items-center bg-gray-100 p-4 rounded-lg">
-              <Ionicons name="settings-outline" size={24} color="#1a4689" />
+              <Ionicons name="card-outline" size={24} color="#04457E" />
+              <Text className="text-gray-800 ml-3">Payment Details</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity className="flex-row items-center bg-gray-100 p-4 rounded-lg">
+              <Ionicons name="document-text-outline" size={24} color="#04457E" />
+              <Text className="text-gray-800 ml-3">My Documents</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity className="flex-row items-center bg-gray-100 p-4 rounded-lg">
+              <Ionicons name="settings-outline" size={24} color="#04457E" />
               <Text className="text-gray-800 ml-3">Settings</Text>
             </TouchableOpacity>
             
             <TouchableOpacity className="flex-row items-center bg-gray-100 p-4 rounded-lg">
-              <Ionicons name="help-circle-outline" size={24} color="#1a4689" />
+              <Ionicons name="help-circle-outline" size={24} color="#04457E" />
               <Text className="text-gray-800 ml-3">Help & Support</Text>
             </TouchableOpacity>
             

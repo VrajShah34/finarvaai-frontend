@@ -6,7 +6,7 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#1a4689',
+        tabBarActiveTintColor: '#04457E',
         tabBarInactiveTintColor: '#9ca3af',
         headerShown: false,
         tabBarStyle: {
@@ -36,7 +36,7 @@ export default function TabLayout() {
             <Ionicons name="book" size={24} color={color} />
           ),
           tabBarLabel: ({ color }) => (
-            <Text style={{ color, fontSize: 12, fontWeight: 'bold' }}>Learn</Text>
+            <Text style={{ color, fontSize: 12 }}>Learn</Text>
           ),
         }}
       />

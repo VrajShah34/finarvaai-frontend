@@ -86,10 +86,10 @@ export default function OnboardingScreen() {
           <View className="flex-row items-center">
             {formCompleted ? (
               <TouchableOpacity onPress={() => setFormCompleted(false)} className="mr-4">
-                <Ionicons name="arrow-back" size={24} color="#1a4689" />
+                <Ionicons name="arrow-back" size={24} color="primary" />
               </TouchableOpacity>
             ) : null}
-            <Text className="text-[#1a4689] text-2xl font-bold">Gromo</Text>
+            <Text className="text-primary text-2xl font-bold">Gromo</Text>
             <Text className="text-green-500 text-2xl font-bold">+</Text>
           </View>
         )
@@ -102,7 +102,7 @@ export default function OnboardingScreen() {
             <>
               {/* Header */}
               <View className="mb-6">
-                <Text className="text-[#1a4689] text-2xl font-bold mb-1">
+                <Text className="text-primary text-2xl font-bold mb-1">
                   Let's personalize your journey
                 </Text>
                 <Text className="text-gray-500">
@@ -114,7 +114,7 @@ export default function OnboardingScreen() {
               <View className="space-y-6">
                 {/* Full Name */}
                 <View>
-                  <Text className="text-gray-700 mb-1">Full Name <Ionicons name="mic" size={16} color="#1a4689" /></Text>
+                  <Text className="text-gray-700 mb-1">Full Name <Ionicons name="mic" size={16} color="primary" /></Text>
                   <TextInput
                     className="border-b border-gray-300 py-3"
                     value={formData.fullName}
@@ -125,7 +125,7 @@ export default function OnboardingScreen() {
                 
                 {/* Age */}
                 <View>
-                  <Text className="text-gray-700 mb-1">Age <Ionicons name="mic" size={16} color="#1a4689" /></Text>
+                  <Text className="text-gray-700 mb-1">Age <Ionicons name="mic" size={16} color="primary" /></Text>
                   <TextInput
                     className="border-b border-gray-300 py-3"
                     value={formData.age}
@@ -137,7 +137,7 @@ export default function OnboardingScreen() {
                 
                 {/* Gender */}
                 <View>
-                  <Text className="text-gray-700 mb-1">Gender <Ionicons name="mic" size={16} color="#1a4689" /></Text>
+                  <Text className="text-gray-700 mb-1">Gender <Ionicons name="mic" size={16} color="primary" /></Text>
                   <TouchableOpacity className="border-b border-gray-300 py-3 flex-row justify-between items-center">
                     <Text className="text-black">{formData.gender}</Text>
                     <Ionicons name="chevron-down" size={20} color="gray" />
@@ -146,7 +146,7 @@ export default function OnboardingScreen() {
                 
                 {/* Region/Pin Code */}
                 <View>
-                  <Text className="text-gray-700 mb-1">Region / Pin Code <Ionicons name="mic" size={16} color="#1a4689" /></Text>
+                  <Text className="text-gray-700 mb-1">Region / Pin Code <Ionicons name="mic" size={16} color="primary" /></Text>
                   <View className="flex-row">
                     <TextInput
                       className="border-b border-gray-300 py-3 flex-1"
@@ -159,7 +159,7 @@ export default function OnboardingScreen() {
                       onPress={handleAutoDetect}
                     >
                       <Ionicons name="location" size={16} color="#4ade80" />
-                      <Text className="text-green-400 ml-1">Auto</Text>
+                      <Text className="text-secondary ml-1">Auto</Text>
                     </TouchableOpacity>
                   </View>
                   <Text className="text-gray-400 text-xs mt-1">Auto-detect enabled. You may edit if needed.</Text>
@@ -175,7 +175,7 @@ export default function OnboardingScreen() {
                       <TouchableOpacity 
                         key={lang}
                         className={`py-2 px-4 rounded-full flex-row items-center ${
-                          formData.languages.includes(lang) ? 'bg-green-400' : 'bg-gray-100'
+                          formData.languages.includes(lang) ? 'bg-secondary' : 'bg-gray-100'
                         }`}
                         onPress={() => toggleLanguage(lang)}
                       >
@@ -211,7 +211,7 @@ export default function OnboardingScreen() {
                     <Text className="text-gray-700 w-1/3">Finance Exp?</Text>
                     <View className="flex-row flex-1">
                       <TouchableOpacity 
-                        className={`rounded-full py-2 px-6 mr-2 ${formData.financeExp === 'Yes' ? 'bg-green-400' : 'bg-gray-100'}`}
+                        className={`rounded-full py-2 px-6 mr-2 ${formData.financeExp === 'Yes' ? 'bg-secondary' : 'bg-gray-100'}`}
                         onPress={() => handleFinanceExpToggle('Yes')}
                       >
                         {formData.financeExp === 'Yes' && (
@@ -220,7 +220,7 @@ export default function OnboardingScreen() {
                         <Text className={`text-center ${formData.financeExp === 'Yes' ? 'text-white' : 'text-gray-800'}`}>Yes</Text>
                       </TouchableOpacity>
                       <TouchableOpacity 
-                        className={`rounded-full py-2 px-6 ${formData.financeExp === 'No' ? 'bg-green-400' : 'bg-gray-100'}`}
+                        className={`rounded-full py-2 px-6 ${formData.financeExp === 'No' ? 'bg-secondary' : 'bg-gray-100'}`}
                         onPress={() => handleFinanceExpToggle('No')}
                       >
                         <Text className={`text-center ${formData.financeExp === 'No' ? 'text-white' : 'text-gray-800'}`}>No</Text>
@@ -243,7 +243,7 @@ export default function OnboardingScreen() {
                 
                 {/* Continue Button */}
                 <TouchableOpacity 
-                  className="bg-[#1a4689] py-4 rounded-xl mt-4"
+                  className="bg-primary py-4 rounded-xl mt-4"
                   onPress={handleSubmit}
                 >
                   <Text className="text-white text-center font-bold">Continue</Text>
@@ -256,30 +256,30 @@ export default function OnboardingScreen() {
               {/* Assigned AI Persona Card */}
               <View className="bg-gray-50 rounded-xl p-5 mb-6">
                 <View className="flex-row items-center mb-2">
-                  <View className="h-5 w-5 rounded-full bg-green-400 mr-2" />
-                  <Text className="text-[#1a4689] text-lg font-bold">Assigned AI Persona</Text>
+                  <View className="h-5 w-5 rounded-full bg-secondary mr-2" />
+                  <Text className="text-primary text-lg font-bold">Assigned AI Persona</Text>
                 </View>
                 
-                <Text className="text-[#1a4689] text-xl font-semibold mb-3">
+                <Text className="text-primary text-xl font-semibold mb-3">
                   "Confident Seller – Multilingual Urban Male with Experience"
                 </Text>
                 
                 <View className="mb-2 flex-row">
                   <View style={{ width: 20 }}>
-                    <Ionicons name="navigate-circle" size={16} color="#1a4689" />
+                    <Ionicons name="navigate-circle" size={16} color="primary" />
                   </View>
                   <Text className="text-black">
-                    <Text className="text-[#1a4689] font-semibold">Recommended: </Text>
+                    <Text className="text-primary font-semibold">Recommended: </Text>
                     Health Insurance, Monthly Plans
                   </Text>
                 </View>
                 
                 <View className="mb-3 flex-row">
                   <View style={{ width: 20 }}>
-                    <Ionicons name="volume-medium" size={16} color="#1a4689" />
+                    <Ionicons name="volume-medium" size={16} color="primary" />
                   </View>
                   <Text className="text-black">
-                    <Text className="text-[#1a4689] font-semibold">AI Voice Tone: </Text>
+                    <Text className="text-primary font-semibold">AI Voice Tone: </Text>
                     Friendly, Local Accent (Marathi + Hindi)
                   </Text>
                 </View>
@@ -296,14 +296,14 @@ export default function OnboardingScreen() {
               {/* Profile Summary Card */}
               <View className="bg-gray-50 rounded-xl p-5 mb-6">
                 <View className="flex-row items-center mb-4">
-                  <Ionicons name="person-outline" size={18} color="#1a4689" />
-                  <Text className="text-[#1a4689] text-lg font-bold ml-2">Profile Summary</Text>
+                  <Ionicons name="person-outline" size={18} color="primary" />
+                  <Text className="text-primary text-lg font-bold ml-2">Profile Summary</Text>
                 </View>
                 
                 {/* Name, Age and Gender */}
                 <View className="flex-row items-center mb-3">
-                  <Ionicons name="person" size={16} color="#1a4689" />
-                  <Text className="text-[#1a4689] font-semibold ml-2">{formData.fullName}</Text>
+                  <Ionicons name="person" size={16} color="primary" />
+                  <Text className="text-primary font-semibold ml-2">{formData.fullName}</Text>
                   <Text className="text-gray-600 ml-2">• {formData.age} • {formData.gender}</Text>
                 </View>
                 
@@ -328,11 +328,11 @@ export default function OnboardingScreen() {
               
               {/* Start Journey Button */}
               <TouchableOpacity 
-                className="bg-green-400 py-4 rounded-xl mb-2 flex-row justify-center items-center"
+                className="bg-secondary py-4 rounded-xl mb-2 flex-row justify-center items-center"
                 onPress={handleStartJourney}
               >
-                <Ionicons name="rocket" size={20} color="white" />
-                <Text className="text-white text-center font-bold ml-2">Start My AI Journey</Text>
+                <Ionicons name="rocket" size={20} color="primary" />
+                <Text className="text-primary text-center font-bold ml-2">Start My AI Journey</Text>
               </TouchableOpacity>
               
               

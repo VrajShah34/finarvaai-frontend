@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { Image, Modal, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Modal, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 type Question = {
   id: number;
@@ -387,7 +387,7 @@ export default function QuizScreen() {
         </View>
         
         {/* Footer */}
-        <View className="bg-white p-4 flex-row justify-between items-center border-t border-gray-200">
+        {/* <View className="bg-white p-4 flex-row justify-between items-center border-t border-gray-200">
           <View className="flex-row items-center">
             <Image 
               source={{ uri: 'https://randomuser.me/api/portraits/men/32.jpg' }}
@@ -406,7 +406,7 @@ export default function QuizScreen() {
               <Ionicons name="settings" size={24} color="#666" />
             </TouchableOpacity>
           </View>
-        </View>
+        </View> */}
       </View>
     </SafeAreaView>
   );
