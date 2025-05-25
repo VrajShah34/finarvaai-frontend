@@ -61,7 +61,7 @@ export default function BuyLeadsScreen() {
   
   return (
     <SafeAreaView className="flex-1 bg-gray-50">
-      <View className="bg-[#04457E] py-5 px-4 flex-row justify-between items-center">
+      <View className="bg-primary py-5 px-4 flex-row justify-between items-center">
         <Text className="text-white text-2xl font-bold">Gromo+</Text>
         <TouchableOpacity>
           <Ionicons name="menu" size={28} color="white" />
@@ -79,7 +79,7 @@ export default function BuyLeadsScreen() {
               />
             </View>
             <View className="ml-3">
-              <Text className="text-[#04457E] text-xl font-bold">Buy Leads</Text>
+              <Text className="text-primary text-xl font-bold">Buy Leads</Text>
               <Text className="text-gray-600 text-sm">
                 AI-curated, high-intent prospects selected for you
               </Text>
@@ -87,7 +87,7 @@ export default function BuyLeadsScreen() {
           </View>
           
           {/* Matching Banner */}
-          <View className="bg-[#04457E] p-4 rounded-xl mb-4">
+          <View className="bg-primary p-4 rounded-xl mb-4">
             <View className="flex-row items-center mb-2">
               <MaterialCommunityIcons name="lightning-bolt" size={20} color="#FFD700" />
               <Text className="text-white text-lg font-bold ml-1">
@@ -124,35 +124,35 @@ export default function BuyLeadsScreen() {
           {/* Filters */}
           <ScrollView horizontal showsHorizontalScrollIndicator={false} className="mb-6">
             <TouchableOpacity 
-              className={`flex-row items-center mr-2 py-2 px-4 rounded-full ${activeFilters.includes('Filters') ? 'bg-[#04457E]' : 'bg-white border border-gray-300'}`}
+              className={`flex-row items-center mr-2 py-2 px-4 rounded-full ${activeFilters.includes('Filters') ? 'bg-primary' : 'bg-white border border-gray-300'}`}
               onPress={() => toggleFilter('Filters')}
             >
-              <Ionicons name="funnel" size={18} color={activeFilters.includes('Filters') ? "white" : "#04457E"} />
-              <Text className={`ml-1 font-medium ${activeFilters.includes('Filters') ? 'text-white' : 'text-[#04457E]'}`}>Filters</Text>
+              <Ionicons name="funnel" size={18} color={activeFilters.includes('Filters') ? "white" : "primary"} />
+              <Text className={`ml-1 font-medium ${activeFilters.includes('Filters') ? 'text-white' : 'text-primary'}`}>Filters</Text>
             </TouchableOpacity>
             
             <TouchableOpacity 
-              className={`flex-row items-center mr-2 py-2 px-4 rounded-full ${activeFilters.includes('Pune') ? 'bg-[#04457E]' : 'bg-white border border-gray-300'}`}
+              className={`flex-row items-center mr-2 py-2 px-4 rounded-full ${activeFilters.includes('Pune') ? 'bg-primary' : 'bg-white border border-gray-300'}`}
               onPress={() => toggleFilter('Pune')}
             >
-              <Ionicons name="location" size={18} color={activeFilters.includes('Pune') ? "white" : "#04457E"} />
-              <Text className={`ml-1 font-medium ${activeFilters.includes('Pune') ? 'text-white' : 'text-[#04457E]'}`}>Pune</Text>
+              <Ionicons name="location" size={18} color={activeFilters.includes('Pune') ? "white" : "primary"} />
+              <Text className={`ml-1 font-medium ${activeFilters.includes('Pune') ? 'text-white' : 'text-primary'}`}>Pune</Text>
             </TouchableOpacity>
             
             <TouchableOpacity 
-              className={`flex-row items-center mr-2 py-2 px-4 rounded-full ${activeFilters.includes('Health') ? 'bg-[#04457E]' : 'bg-white border border-gray-300'}`}
+              className={`flex-row items-center mr-2 py-2 px-4 rounded-full ${activeFilters.includes('Health') ? 'bg-primary' : 'bg-white border border-gray-300'}`}
               onPress={() => toggleFilter('Health')}
             >
-              <Ionicons name="heart" size={18} color={activeFilters.includes('Health') ? "white" : "#04457E"} />
-              <Text className={`ml-1 font-medium ${activeFilters.includes('Health') ? 'text-white' : 'text-[#04457E]'}`}>Health</Text>
+              <Ionicons name="heart" size={18} color={activeFilters.includes('Health') ? "white" : "primary"} />
+              <Text className={`ml-1 font-medium ${activeFilters.includes('Health') ? 'text-white' : 'text-primary'}`}>Health</Text>
             </TouchableOpacity>
             
             <TouchableOpacity 
-              className={`flex-row items-center mr-2 py-2 px-4 rounded-full ${activeFilters.includes('Term') ? 'bg-[#04457E]' : 'bg-white border border-gray-300'}`}
+              className={`flex-row items-center mr-2 py-2 px-4 rounded-full ${activeFilters.includes('Term') ? 'bg-primary' : 'bg-white border border-gray-300'}`}
               onPress={() => toggleFilter('Term')}
             >
-              <Ionicons name="shield-checkmark" size={18} color={activeFilters.includes('Term') ? "white" : "#04457E"} />
-              <Text className={`ml-1 font-medium ${activeFilters.includes('Term') ? 'text-white' : 'text-[#04457E]'}`}>Term</Text>
+              <Ionicons name="shield-checkmark" size={18} color={activeFilters.includes('Term') ? "white" : "primary"} />
+              <Text className={`ml-1 font-medium ${activeFilters.includes('Term') ? 'text-white' : 'text-primary'}`}>Term</Text>
             </TouchableOpacity>
           </ScrollView>
           

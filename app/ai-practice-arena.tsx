@@ -1,7 +1,11 @@
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Stack, useRouter } from 'expo-router';
+
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+const primaryColor = '#04457E'; 
 
 export default function AIPracticeArenaScreen() {
   const router = useRouter();
@@ -31,11 +35,27 @@ export default function AIPracticeArenaScreen() {
   ];
   
   return (
-    <SafeAreaView className="flex-1 bg-gray-100">
-      <Stack.Screen options={{ headerShown: false }} />
+    <>
+  <StatusBar 
+          backgroundColor={primaryColor} 
+          barStyle="light-content" 
+          translucent={true}
+        />
+        
+        {/* Using SafeAreaView with edges to prevent content from going under status bar */}
+        <SafeAreaView 
+          edges={['right', 'left','top']} 
+          className="flex-1 bg-gray-50"
+          style={{ backgroundColor: primaryColor }}
+        >
+          <Stack.Screen options={{ 
+            headerShown: false,
+            animation: 'slide_from_right',
+            statusBarStyle: 'light', // For iOS
+          }} />
       
       {/* Header */}
-      <View className="bg-[#04457E] py-5 px-4 flex-row justify-between items-center">
+      <View className="bg-primary py-5 px-4 flex-row justify-between items-center">
         <Text className="text-white text-2xl font-bold">Gromo+</Text>
         <TouchableOpacity>
           <Ionicons name="menu" size={28} color="white" />
@@ -43,30 +63,31 @@ export default function AIPracticeArenaScreen() {
       </View>
       
       <ScrollView className="flex-1">
+        <View className='bg-gray-50'>
         {/* AI Practice Arena Header */}
-        <View className="bg-[#04457E] m-4 rounded-lg p-4 flex-row justify-between items-center">
+        <View className="bg-primary m-4 rounded-lg p-4 flex-row justify-between items-center">
           <View>
             <Text className="text-white text-xl font-bold">AI Practice Arena</Text>
             <Text className="text-white text-xs opacity-80">Sharpen your skills in real-time with our AI Avatar.</Text>
           </View>
           <TouchableOpacity className="bg-[#18FFAA] w-10 h-10 rounded-full items-center justify-center">
-            <Ionicons name="refresh" size={20} color="#04457E" />
+            <Ionicons name="refresh" size={20} color="primary" />
           </TouchableOpacity>
         </View>
         
         {/* How does this work? */}
         <View className="bg-white mx-4 rounded-lg p-4 mb-4 shadow-sm">
           <View className="flex-row mb-4">
-            <View className="bg-[#04457E] w-10 h-10 rounded-lg items-center justify-center mr-3">
+            <View className="bg-primary w-10 h-10 rounded-lg items-center justify-center mr-3">
               <Ionicons name="help" size={20} color="white" />
             </View>
-            <Text className="text-[#04457E] text-lg font-bold self-center">How does this work?</Text>
+            <Text className="text-primary text-lg font-bold self-center">How does this work?</Text>
           </View>
           
           <View className="space-y-4">
             <View className="flex-row">
               <View className="bg-[#18FFAA] rounded w-8 h-8 items-center justify-center mr-3 mt-0.5">
-                <MaterialIcons name="phone-in-talk" size={16} color="#04457E" />
+                <MaterialIcons name="phone-in-talk" size={16} color="primary" />
               </View>
               <View className="flex-1">
                 <Text className="text-gray-700 font-medium">
@@ -77,7 +98,7 @@ export default function AIPracticeArenaScreen() {
             
             <View className="flex-row">
               <View className="bg-[#18FFAA] rounded w-8 h-8 items-center justify-center mr-3 mt-0.5">
-                <Ionicons name="volume-high" size={16} color="#04457E" />
+                <Ionicons name="volume-high" size={16} color="primary" />
               </View>
               <View className="flex-1">
                 <Text className="text-gray-700 font-medium">
@@ -88,7 +109,7 @@ export default function AIPracticeArenaScreen() {
             
             <View className="flex-row">
               <View className="bg-[#18FFAA] rounded w-8 h-8 items-center justify-center mr-3 mt-0.5">
-                <Ionicons name="shield-checkmark" size={16} color="#04457E" />
+                <Ionicons name="shield-checkmark" size={16} color="primary" />
               </View>
               <View className="flex-1">
                 <Text className="text-gray-700 font-medium">
@@ -99,7 +120,7 @@ export default function AIPracticeArenaScreen() {
             
             <View className="flex-row">
               <View className="bg-[#18FFAA] rounded w-8 h-8 items-center justify-center mr-3 mt-0.5">
-                <Ionicons name="time" size={16} color="#04457E" />
+                <Ionicons name="time" size={16} color="primary" />
               </View>
               <View className="flex-1">
                 <Text className="text-gray-700 font-medium">
@@ -111,7 +132,7 @@ export default function AIPracticeArenaScreen() {
         </View>
         
         {/* More time for real sales */}
-        <View className="bg-[#04457E] mx-4 rounded-lg p-5 mb-4">
+        <View className="bg-primary mx-4 rounded-lg p-5 mb-4">
           <View className="flex-row items-center mb-3">
             <Ionicons name="flash" size={24} color="#18FFAA" />
             <Text className="text-white font-bold text-lg ml-2">More time for real sales</Text>
@@ -129,10 +150,10 @@ export default function AIPracticeArenaScreen() {
         {/* FAQ Section */}
         <View className="bg-white mx-4 rounded-lg p-4 mb-4 shadow-sm">
           <View className="flex-row items-center mb-4">
-            <View className="bg-[#04457E] w-8 h-8 rounded-full items-center justify-center mr-2">
+            <View className="bg-primary w-8 h-8 rounded-full items-center justify-center mr-2">
               <Ionicons name="help" size={16} color="white" />
             </View>
-            <Text className="text-[#04457E] font-bold text-lg">Frequently Asked</Text>
+            <Text className="text-primary font-bold text-lg">Frequently Asked</Text>
           </View>
           
           {faqs.map((faq, index) => (
@@ -142,11 +163,11 @@ export default function AIPracticeArenaScreen() {
               onPress={() => toggleFaq(index)}
             >
               <View className="flex-row justify-between items-center">
-                <Text className="text-[#04457E] font-medium">{faq.question}</Text>
+                <Text className="text-primary font-medium">{faq.question}</Text>
                 <Ionicons 
                   name={expandedFaq === index ? "chevron-up" : "chevron-down"} 
                   size={20} 
-                  color="#04457E" 
+                  color="primary" 
                 />
               </View>
               
@@ -162,21 +183,23 @@ export default function AIPracticeArenaScreen() {
         {/* Add More Contacts */}
         <View className="bg-[#18FFAA] mx-4 rounded-lg p-5 mb-20">
           <View className="flex-row items-center justify-center mb-2">
-            <View className="bg-[#04457E] w-8 h-8 rounded-full items-center justify-center mr-2">
+            <View className="bg-primary w-8 h-8 rounded-full items-center justify-center mr-2">
               <Ionicons name="add" size={18} color="white" />
             </View>
-            <Text className="text-[#04457E] font-bold text-lg">Add More Contacts</Text>
+            <Text className="text-primary font-bold text-lg">Add More Contacts</Text>
           </View>
           
-          <Text className="text-[#04457E] text-center mb-4">
+          <Text className="text-primary text-center mb-4">
             The more you add, the more leads Gromo AI can qualify for you.
           </Text>
           
-          <TouchableOpacity className="bg-[#04457E] py-3 px-6 rounded-lg self-center">
+          <TouchableOpacity className="bg-primary py-3 px-6 rounded-lg self-center">
             <Text className="text-white font-medium">Add Contact</Text>
           </TouchableOpacity>
         </View>
+        </View>
       </ScrollView>
     </SafeAreaView>
+    </>
   );
 }
